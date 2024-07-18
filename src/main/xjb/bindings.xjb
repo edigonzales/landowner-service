@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<bindings xmlns="https://jakarta.ee/xml/ns/jaxb" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:annox="http://annox.dev.java.net" extensionBindingPrefixes="xjc annox" version="3.0">
+
+  <bindings schemaLocation="https://terravis.so.ch/gbdbs/xsd/Versioning/1.0/Versioning.xsd">
+    <schemaBindings>
+      <package name="ch.terravis._10.versioning"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="https://terravis.so.ch/gbdbs/xsd/Versioning/1.1/Versioning.xsd">
+    <schemaBindings>
+      <package name="ch.terravis._11.versioning"/>
+    </schemaBindings>
+  </bindings>
+  
+  <bindings schemaLocation="https://terravis.so.ch/gbdbs/xsd/GBDBS/2.1/GBDBS.xsd" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" node="/xsd:schema">
+    <globalBindings>
+      <xjc:simple />
+    </globalBindings>
+  </bindings>
+
+  <bindings schemaLocation="https://terravis.so.ch/gbdbs/xsd/GBDBS/2.1/GBDBS.xsd" node="/xsd:schema">
+    <bindings node="//xsd:complexType[@name='GetParcelsByIdRequestType']">
+            <annox:annotateClass>@jakarta.xml.bind.annotation.XmlRootElement(name="GetParcelsByIdRequest")</annox:annotateClass>
+    </bindings>
+  </bindings>
+  
+</bindings>
