@@ -19,7 +19,7 @@ public class WsConfig {
     @Bean
     public ParcelsClient parcelsClient(Jaxb2Marshaller marshaller) {
         ParcelsClient client = new ParcelsClient();
-        client.setDefaultUri("https://terravis.so.ch/gbdbs/gbdbs");
+        client.setDefaultUri("https://terravis.so.ch/gbdbs/gbdbs"); // Damit man ihn im Client nicht angeben müsste.
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
         return client;
