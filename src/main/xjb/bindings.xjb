@@ -13,12 +13,14 @@
     </schemaBindings>
   </bindings>
   
+  <!--Das hilft für einige missing XmlRootElement-->
   <bindings schemaLocation="https://terravis.so.ch/gbdbs/xsd/GBDBS/2.1/GBDBS.xsd" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" node="/xsd:schema">
     <globalBindings>
       <xjc:simple />
     </globalBindings>
   </bindings>
 
+  <!--Man muss für einige Klassen explizit (mit einem jaxb-Plugin) das Root-Element setzen.-->
   <bindings schemaLocation="https://terravis.so.ch/gbdbs/xsd/GBDBS/2.1/GBDBS.xsd" node="/xsd:schema">
     <bindings node="//xsd:complexType[@name='GetParcelsByIdRequestType']">
             <annox:annotateClass>@jakarta.xml.bind.annotation.XmlRootElement(name="GetParcelsByIdRequest")</annox:annotateClass>
