@@ -44,19 +44,25 @@ public class ParcelsClient extends WebServiceGatewaySupport {
        
         request.setVersion("2.1");
         request.setTransactionId("RAUM-14922-1");
-        request.setBezugInhalt(BezugInhalt.INDEX_MIT_EIGENTUM);
+        request.setBezugInhalt(BezugInhalt.VOLLSTAENDIG);
         request.setIncludeHistory(false);
-        request.getIds().add("CH633284061534::::");
+        request.getIds().add("CH258032700664::::");  // CH258032700664 // CH633284061534
         
-        StringWriter sw = new StringWriter();
-        Result result = new StreamResult(sw);
+        StringWriter sw1 = new StringWriter();
+        Result result1 = new StreamResult(sw1);
 
-        marshaller.marshal(request, result);
-        System.out.println(sw.toString());
+        marshaller.marshal(request, result1);
+        System.out.println("Request: " + sw1.toString());
         
         
         GetParcelsByIdResponse response = (GetParcelsByIdResponse) getWebServiceTemplate()
                 .marshalSendAndReceive("https://terravis.so.ch/gbdbs/gbdbs", request);
+
+        StringWriter sw2 = new StringWriter();
+        Result result2 = new StreamResult(sw2);
+
+        marshaller.marshal(response, result2);
+        System.out.println("Response: " + sw2.toString());
         
         return response;
     }

@@ -10,12 +10,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
+import ch.admin.geo.schemas.bj.tgbv.gbdbs._2.GetParcelsByIdResponse;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 public class MainController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private ParcelsClient parcelsClient;
+    
+    public MainController(ParcelsClient parcelsClient) {
+        this.parcelsClient = parcelsClient;
+    }
+    
     @GetMapping("/ping")
     public ResponseEntity<String> ping(@RequestHeader Map<String, String> headers, HttpServletRequest request) {
         
@@ -30,5 +37,15 @@ public class MainController {
         
         return new ResponseEntity<String>("landowner-service", HttpStatus.OK);
     }
+    
+    @GetMapping("/pong")
+    public ResponseEntity<GetParcelsByIdResponse> pong(@RequestHeader Map<String, String> headers, HttpServletRequest request) {
+        GetParcelsByIdResponse response = parcelsClient.getParcelsById("gaga");
+        
+//        return new ResponseEntity<GetEGRIDResponse>(new GetEGRIDResponse(ret),gsList.size()>0?HttpStatus.OK:HttpStatus.NO_CONTENT);
+
+        return new ResponseEntity<GetParcelsByIdResponse>(response, HttpStatus.OK);
+    }
+   
 
 }

@@ -25,14 +25,14 @@ public class LandownerServiceApplication {
             if (args.length > 0) {
                 country = args[0];
             }
-            GetParcelsByIdResponse response = parcelsClient.getParcelsById(country);
-            System.err.println(response.getGrundstuecks().getFirst().getGrundstueck().getValue());
-            
-            
-            JAXBElement<LiegenschaftType> foo = (JAXBElement<LiegenschaftType>) response.getGrundstuecks().getFirst().getGrundstueck();
-            System.err.println(foo.getValue());
-            
-            Person person = response.getPersons().getFirst();
+//            GetParcelsByIdResponse response = parcelsClient.getParcelsById(country);
+//            System.err.println(response.getGrundstuecks().getFirst().getGrundstueck().getValue());
+//            
+//            
+//            JAXBElement<LiegenschaftType> foo = (JAXBElement<LiegenschaftType>) response.getGrundstuecks().getFirst().getGrundstueck();
+//            System.err.println(foo.getValue());
+//            
+//            Person person = response.getPersons().getFirst();
         };
     }
 
