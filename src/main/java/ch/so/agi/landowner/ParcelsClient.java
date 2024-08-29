@@ -44,15 +44,15 @@ public class ParcelsClient extends WebServiceGatewaySupport {
        
         request.setVersion("2.1");
         request.setTransactionId("RAUM-14922-1");
-        request.setBezugInhalt(BezugInhalt.VOLLSTAENDIG);
+        request.setBezugInhalt(BezugInhalt.INDEX_MIT_EIGENTUM);
         request.setIncludeHistory(false);
-        request.getIds().add("CH258032700664::::");  // CH258032700664 // CH633284061534
+        request.getIds().add(egrid+"::::");  // CH258032700664 // CH633284061534
         
         StringWriter sw1 = new StringWriter();
         Result result1 = new StreamResult(sw1);
 
         marshaller.marshal(request, result1);
-        System.out.println("Request: " + sw1.toString());
+        //System.out.println("Request: " + sw1.toString());
         
         
         GetParcelsByIdResponse response = (GetParcelsByIdResponse) getWebServiceTemplate()
@@ -62,7 +62,7 @@ public class ParcelsClient extends WebServiceGatewaySupport {
         Result result2 = new StreamResult(sw2);
 
         marshaller.marshal(response, result2);
-        System.out.println("Response: " + sw2.toString());
+        //System.out.println("Response: " + sw2.toString());
         
         return response;
     }

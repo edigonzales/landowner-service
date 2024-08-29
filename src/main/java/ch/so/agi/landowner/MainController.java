@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.admin.geo.schemas.bj.tgbv.gbdbs._2.GetParcelsByIdResponse;
@@ -39,8 +41,16 @@ public class MainController {
     }
     
     @GetMapping("/pong")
-    public ResponseEntity<GetParcelsByIdResponse> pong(@RequestHeader Map<String, String> headers, HttpServletRequest request) {
-        GetParcelsByIdResponse response = parcelsClient.getParcelsById("gaga");
+    public ResponseEntity<GetParcelsByIdResponse> pong(
+            @RequestParam(name = "egrid") String egrid
+           ) {
+        
+        
+//        System.out.println("egrid " + egrid);
+        
+        
+        GetParcelsByIdResponse response = parcelsClient.getParcelsById(egrid);
+        
         
 //        return new ResponseEntity<GetEGRIDResponse>(new GetEGRIDResponse(ret),gsList.size()>0?HttpStatus.OK:HttpStatus.NO_CONTENT);
 
