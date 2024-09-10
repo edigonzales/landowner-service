@@ -53,8 +53,8 @@ public class ParcelsClient extends WebServiceGatewaySupport {
        
         request.setVersion("2.1");
         request.setTransactionId("RAUM-14922-1");
-        //request.setBezugInhalt(BezugInhalt.INDEX_MIT_EIGENTUM);
-        request.setBezugInhalt(BezugInhalt.OEFFENTLICH);
+        request.setBezugInhalt(BezugInhalt.INDEX_MIT_EIGENTUM);
+//        request.setBezugInhalt(BezugInhalt.OEFFENTLICH);
         request.setIncludeHistory(false);
         request.getIds().add(egrid+"::::");  // CH258032700664 // CH633284061534
         
